@@ -1,38 +1,30 @@
-// 변수 미사용
-console.log(5 + 3);
-console.log(5 - 3);
-console.log(5 * 3);
-console.log(5 / 3);
+// Arrays
+const daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat"];
 
-console.log(4 + 2);
-console.log(4 - 2);
-console.log(4 * 2);
-console.log(4 / 2);
+console.log(daysOfWeek);
 
-// const
-// 상수는 값을 변경할 수 없다.
-const a = 5;
-const b = 3;
+// Get item from array
+console.log(daysOfWeek[4]);
 
-console.log(a + b);
-console.log(a - b);
-console.log(a * b);
-console.log(a / b);
+// Add something to the array
+daysOfWeek.push("sun");
 
-// let
-// 변수는 값을 변경할 수 있다.
-let c = 5;
-let d = 3;
+// Objects
+const player = {
+  name: "museloper",
+  points: 100,
+};
 
-console.log(c + d);
-console.log(c - d);
-console.log(c * d);
-console.log(c / d);
+console.log(player);
 
-c = 4;
-d = 2;
+// Get value from object
+console.log(player.name);
+console.log(player["name"]);
 
-console.log(c + d);
-console.log(c - d);
-console.log(c * d);
-console.log(c / d);
+// Update something
+player.points += 200;
+console.log(player);
+
+// Add something to the object
+player.type = "Wizard";
+console.log(player);
