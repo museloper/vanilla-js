@@ -1,30 +1,74 @@
-// Arrays
-const daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat"];
+function sayHello() {
+  console.log("Hello!");
+}
 
-console.log(daysOfWeek);
+sayHello();
 
-// Get item from array
-console.log(daysOfWeek[4]);
+function sayHello2(name, age) {
+  console.log("Hello my name is " + name + " and I'm " + age);
+}
 
-// Add something to the array
-daysOfWeek.push("sun");
+sayHello2("museloper", 32);
 
-// Objects
+function plus(x, y) {
+  console.log(x + y);
+}
+
+plus(5, 3);
+
+function divide(x, y) {
+  console.log(a / b);
+}
+
+divide(5, 3);
+
 const player = {
   name: "museloper",
-  points: 100,
+  sayHello: function (name) {
+    console.log("Hello! " + name + " nice to meet you!");
+  },
 };
 
-console.log(player);
-
-// Get value from object
 console.log(player.name);
-console.log(player["name"]);
+player.sayHello("googlee");
 
-// Update something
-player.points += 200;
-console.log(player);
+const calculator = {
+  addition: function (a, b) {
+    console.log(a + b);
+  },
 
-// Add something to the object
-player.type = "Wizard";
-console.log(player);
+  subtraction: function (a, b) {
+    console.log(a - b);
+  },
+
+  multiplication: function (a, b) {
+    console.log(a * b);
+  },
+
+  division: function (a, b) {
+    console.log(a / b);
+  },
+};
+
+calculator.addition(5, 3);
+calculator.subtraction(5, 3);
+calculator.multiplication(5, 3);
+calculator.division(5, 3);
+
+const calculator2 = {
+  addition: function (a, b) {
+    return a + b;
+  },
+
+  subtraction: function (a, b) {
+    return a - b;
+  },
+
+  multiplication: function (a, b) {
+    return a * b;
+  },
+
+  division: function (a, b) {
+    return a / b;
+  },
+};
