@@ -1,23 +1,42 @@
-// document
-console.log(document);
+const title = document.querySelector("#title");
 
-// console.dir Element를 더 상세히 보여준다.
-console.dir(document);
-document.title = "Hello! From JS!";
+function handleTitleClick() {
+  title.style.color = "blue";
+  console.log("title was clicked");
+}
 
-// getElementById
-const title = document.getElementById("title");
-console.log(title);
-title.innerText = "Got you!";
+function handleMouseEnter() {
+  title.innerText = "Mouse is here!";
+}
 
-// getElementsByClassName
-const hellos = document.getElementsByClassName("hello");
-console.log(hellos);
+function handleMouseLeave() {
+  title.innerText = "Mouse is gone!";
+}
 
-// querySelector
-const title2 = document.querySelector(".hello span");
-console.log(title2);
+function handleWindowResize() {
+  document.body.style.backgroundColor = "tomato";
+}
 
-// querySelectorAll
-const titles = document.querySelectorAll(".hello span");
-console.log(titles);
+function handleWindowCopy() {
+  alert("copier");
+}
+
+function handleWindowOffline() {
+  alert("SOS no WIFI!");
+}
+
+function handleWindowOnline() {
+  alert("ALL GOOD!");
+}
+
+// title.addEventListener("click", handleTitleClick);
+title.onclick = handleTitleClick;
+// title.addEventListener("mouseenter", handleMouseEnter);
+title.onmouseenter = handleMouseEnter;
+// title.addEventListener("mouseleave", handleMouseLeave);
+title.onmouseleave = handleMouseLeave;
+
+window.addEventListener("resize", handleWindowResize);
+window.addEventListener("copy", handleWindowCopy);
+window.addEventListener("offline", handleWindowOffline);
+window.addEventListener("online", handleWindowOnline);
