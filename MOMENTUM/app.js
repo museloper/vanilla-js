@@ -1,42 +1,31 @@
 const title = document.querySelector("#title");
 
 function handleTitleClick() {
-  title.style.color = "blue";
-  console.log("title was clicked");
+  /* JS를 통해 CSS를 직접적으로 컨트롤 */
+  //   const currentColor = title.style.color;
+  //   let newColor;
+
+  //   if (currentColor === "blue") {
+  //     newColor = "tomato";
+  //   } else {
+  //     newColor = "blue";
+  //   }
+
+  //   title.style.color = newColor;
+
+  const clickedClass = "active";
+
+  /* CLASS를 통해서 CSS를 간접적으로 컨트롤 */
+  //   if (title.className === clickedClass) title.className = "";
+  //   else title.className = clickedClass;
+
+  //   if (title.classList.contains(clickedClass)) {
+  //     title.classList.remove(clickedClass);
+  //   } else {
+  //     title.classList.add(clickedClass);
+  //   }
+
+  title.classList.toggle(clickedClass);
 }
 
-function handleMouseEnter() {
-  title.innerText = "Mouse is here!";
-}
-
-function handleMouseLeave() {
-  title.innerText = "Mouse is gone!";
-}
-
-function handleWindowResize() {
-  document.body.style.backgroundColor = "tomato";
-}
-
-function handleWindowCopy() {
-  alert("copier");
-}
-
-function handleWindowOffline() {
-  alert("SOS no WIFI!");
-}
-
-function handleWindowOnline() {
-  alert("ALL GOOD!");
-}
-
-// title.addEventListener("click", handleTitleClick);
-title.onclick = handleTitleClick;
-// title.addEventListener("mouseenter", handleMouseEnter);
-title.onmouseenter = handleMouseEnter;
-// title.addEventListener("mouseleave", handleMouseLeave);
-title.onmouseleave = handleMouseLeave;
-
-window.addEventListener("resize", handleWindowResize);
-window.addEventListener("copy", handleWindowCopy);
-window.addEventListener("offline", handleWindowOffline);
-window.addEventListener("online", handleWindowOnline);
+title.addEventListener("click", handleTitleClick);
