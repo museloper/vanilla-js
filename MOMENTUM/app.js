@@ -1,31 +1,33 @@
-const title = document.querySelector("#title");
+const loginInput = document.querySelector("#login-form input");
+const loginForm = document.querySelector("#login-form");
+const greeting = document.querySelector("#greeting");
 
-function handleTitleClick() {
-  /* JS를 통해 CSS를 직접적으로 컨트롤 */
-  //   const currentColor = title.style.color;
-  //   let newColor;
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username";
 
-  //   if (currentColor === "blue") {
-  //     newColor = "tomato";
-  //   } else {
-  //     newColor = "blue";
-  //   }
+const savedUsername = localStorage.getItem(USERNAME_KEY);
 
-  //   title.style.color = newColor;
+function onLoginSubmit(event) {
+  event.preventDefault();
 
-  const clickedClass = "active";
+  const username = loginInput.value;
+  localStorage.setItem(USERNAME_KEY, username);
 
-  /* CLASS를 통해서 CSS를 간접적으로 컨트롤 */
-  //   if (title.className === clickedClass) title.className = "";
-  //   else title.className = clickedClass;
+  loginForm.classList.add(HIDDEN_CLASSNAME);
 
-  //   if (title.classList.contains(clickedClass)) {
-  //     title.classList.remove(clickedClass);
-  //   } else {
-  //     title.classList.add(clickedClass);
-  //   }
-
-  title.classList.toggle(clickedClass);
+  paintGreetings(username);
 }
 
-title.addEventListener("click", handleTitleClick);
+function paintGreetings(username) {
+  greeting.innerText = `Hello ${username}`;
+  greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+if (savedUsername === null) {
+  // show the form
+  loginForm.classList.remove(HIDDEN_CLASSNAME);
+  loginForm.addEventListener("submit", onLoginSubmit);
+} else {
+  // show the greeting
+  paintGreetings(savedUsername);
+}
